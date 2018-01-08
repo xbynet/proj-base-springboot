@@ -1,14 +1,14 @@
 package com.github.xbynet.dao;
 
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
+
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Hibernate通用的持久层接口
@@ -115,7 +115,7 @@ public interface DAO<T> {
 	 * @param pageSize 每页记录数
 	 * @return
 	 */
-	public Page2<T> findPageForResults(DetachedCriteria criteria,List<Order> orders,
+	public Page<T> findPageForResults(DetachedCriteria criteria,List<Order> orders,
             int pageNo, int pageSize);
 	/**
 	 * 创建与会话无关的检索标准对象

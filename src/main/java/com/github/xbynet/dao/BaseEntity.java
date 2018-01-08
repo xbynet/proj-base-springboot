@@ -1,18 +1,14 @@
 package com.github.xbynet.dao;
 
-import java.io.Serializable;
-import java.util.Date;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.UpdateTimestamp;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 实体基类
@@ -21,7 +17,6 @@ import org.hibernate.annotations.UpdateTimestamp;
  */
 @MappedSuperclass
 public abstract  class BaseEntity implements Serializable{
-	protected String id;
 	protected Date insertTime;
 	protected Date updateTime;
 	
@@ -42,13 +37,5 @@ public abstract  class BaseEntity implements Serializable{
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-	@Id
-	@GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+
 }

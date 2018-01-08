@@ -1,10 +1,9 @@
 package com.github.xbynet.util.io;
 
-import java.util.regex.Pattern;
-
-import javax.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.regex.Pattern;
 
 /**
  * 通过正则表达判断是否正确的手机号，固定电话，身份证，邮箱等.
@@ -88,56 +87,56 @@ public class TextValidator {
 	/**
 	 * 验证手机号（简单）
 	 */
-	public static boolean isMobileSimple(@Nullable CharSequence input) {
+	public static boolean isMobileSimple( CharSequence input) {
 		return isMatch(PATTERN_REGEX_MOBILE_SIMPLE, input);
 	}
 
 	/**
 	 * 验证手机号（精确）
 	 */
-	public static boolean isMobileExact(@Nullable CharSequence input) {
+	public static boolean isMobileExact( CharSequence input) {
 		return isMatch(PATTERN_REGEX_MOBILE_EXACT, input);
 	}
 
 	/**
 	 * 验证固定电话号码
 	 */
-	public static boolean isTel(@Nullable CharSequence input) {
+	public static boolean isTel( CharSequence input) {
 		return isMatch(PATTERN_REGEX_TEL, input);
 	}
 
 	/**
 	 * 验证15或18位身份证号码
 	 */
-	public static boolean isIdCard(@Nullable CharSequence input) {
+	public static boolean isIdCard( CharSequence input) {
 		return isMatch(PATTERN_REGEX_ID_CARD15, input) || isMatch(PATTERN_REGEX_ID_CARD18, input);
 	}
 
 	/**
 	 * 验证邮箱
 	 */
-	public static boolean isEmail(@Nullable CharSequence input) {
+	public static boolean isEmail( CharSequence input) {
 		return isMatch(PATTERN_REGEX_EMAIL, input);
 	}
 
 	/**
 	 * 验证URL
 	 */
-	public static boolean isUrl(@Nullable CharSequence input) {
+	public static boolean isUrl( CharSequence input) {
 		return isMatch(PATTERN_REGEX_URL, input);
 	}
 
 	/**
 	 * 验证yyyy-MM-dd格式的日期校验，已考虑平闰年
 	 */
-	public static boolean isDate(@Nullable CharSequence input) {
+	public static boolean isDate( CharSequence input) {
 		return isMatch(PATTERN_REGEX_DATE, input);
 	}
 
 	/**
 	 * 验证IP地址
 	 */
-	public static boolean isIp(@Nullable CharSequence input) {
+	public static boolean isIp( CharSequence input) {
 		return isMatch(PATTERN_REGEX_IP, input);
 	}
 

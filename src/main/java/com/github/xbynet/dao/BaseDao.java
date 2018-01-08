@@ -1,21 +1,7 @@
 package com.github.xbynet.dao;
 
-import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-
-import org.hibernate.Criteria;
-import org.hibernate.LockMode;
-import org.hibernate.Query;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import com.github.xbynet.util.StringUtil;
+import org.hibernate.*;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
@@ -23,7 +9,14 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.metadata.ClassMetadata;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-import com.github.xbynet.util.StringUtil;
+import javax.annotation.Resource;
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 @SuppressWarnings("unchecked")
 public class BaseDao<T> extends HibernateDaoSupport implements DAO<T>{
@@ -211,7 +204,7 @@ public class BaseDao<T> extends HibernateDaoSupport implements DAO<T>{
         return (List<T>) this.getHibernateTemplate().findByCriteria(detachedCriteria, startIndex, pageSize);
     }
     @Override
-	public Page2<T> findPageForResults(DetachedCriteria criteria,List<Order> orders,
+	public Page<T> findPageForResults(DetachedCriteria criteria,List<Order> orders,
             int pageNo, int pageSize){
     	if(orders!=null){
     		for(Order order:orders){
@@ -226,7 +219,7 @@ public class BaseDao<T> extends HibernateDaoSupport implements DAO<T>{
       //criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         criteria.setResultTransformer (Criteria.ROOT_ENTITY ); //使用了关联类查询要设置这个，不然返回的是 object【】类型
         List<T> list=(List<T>) getHibernateTemplate().findByCriteria(criteria, startIndex, pageNo);
-        Page2<T> results=new Page2<>();
+        Page<T> results=new Page<>();
         results.setPageNo(pageNo);
         results.setPageSize(pageSize);
         results.setPageCount(results.getTotalPages());
@@ -340,12 +333,12 @@ public class BaseDao<T> extends HibernateDaoSupport implements DAO<T>{
 	 * @param values 数量可变的查询参数,按顺序绑定.
 	 * @return 分页查询结果, 附带结果列表及所有查询时的参数.
 	 */
-	public Page2<T> findPage(final String hql,int pageNo,int pageSize, final Object... values) {
+	public Page<T> findPage(final String hql,int pageNo,int pageSize, final Object... values) {
 		
 
 		Query q = createQuery(hql, values);
 
-		Page2<T> page = new Page2<T>();
+		Page<T> page = new Page<T>();
 		
 		page.setPageNo(pageNo);
 		long totalCount = countHqlResult(hql, values);
@@ -372,9 +365,9 @@ public class BaseDao<T> extends HibernateDaoSupport implements DAO<T>{
 	 * @param pageSize 总页数.
 	 * @return 分页查询结果, 附带结果列表及所有查询时的参数.
 	 */
-	public Page2<T> findPage(final String hql,int pageNo,int pageSize, final Map<String, ?> values) {
+	public Page<T> findPage(final String hql,int pageNo,int pageSize, final Map<String, ?> values) {
 		Query q = createQuery(hql, values);
-		Page2<T> page = new Page2<T>();
+		Page<T> page = new Page<T>();
 		
 		page.setPageNo(pageNo);
 		long totalCount = countHqlResult(hql, values);

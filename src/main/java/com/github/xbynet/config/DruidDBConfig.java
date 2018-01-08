@@ -1,22 +1,19 @@
+/*
 package com.github.xbynet.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import com.alibaba.druid.support.spring.stat.DruidStatInterceptor;
-
 import org.springframework.aop.Advisor;
-
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.JdkRegexpMethodPointcut;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.jdbc.DatabaseDriver;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
-
-import org.springframework.context.annotation.Bean; 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.sql.SQLException;
@@ -25,11 +22,13 @@ import java.util.Map;
 
 @Configuration
 @EnableConfigurationProperties(DataSourceProperties.class)
+*/
 /**
  * Druid的DataResource配置类 凡是被Spring管理的类，实现接口 EnvironmentAware 重写方法 setEnvironment
  * 可以在工程启动时， 获取到系统环境变量和application配置文件中的变量。
  * 还有一种方式是采用注解的方式获取 @value("${变量的key值}") 获取application配置文件中的变量。 这里采用第一种要方便些
- */
+ *//*
+
 public class DruidDBConfig {
 
 	@Bean
@@ -109,7 +108,8 @@ public class DruidDBConfig {
 	public Advisor druidStatAdvisor() {
 		return new DefaultPointcutAdvisor(jdkRegexpMethodPointcut(), druidStatInterceptor());
 	}
-	/*
+	*/
+/*
 	 * @Bean public BeanNameAutoProxyCreator beanNameAutoProxyCreator() {
 	 * BeanNameAutoProxyCreator beanNameAutoProxyCreator = new
 	 * BeanNameAutoProxyCreator();
@@ -118,6 +118,7 @@ public class DruidDBConfig {
 	 * );
 	 * beanNameAutoProxyCreator.setInterceptorNames("druid-stat-interceptor");
 	 * return beanNameAutoProxyCreator; }
-	 */
+	 *//*
 
-}
+
+}*/

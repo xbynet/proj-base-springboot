@@ -1,11 +1,11 @@
 package com.github.xbynet.util.concurrent;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 由程序触发的ThreadDump，打印到日志中.
@@ -13,8 +13,6 @@ import org.slf4j.LoggerFactory;
  * 因为ThreadDump本身会造成JVM停顿，所以加上了开关和最少间隔时间的选项(默认不限制)
  * 
  * 因为ThreadInfo的toString()最多只会打印8层的StackTrace，所以加上了最大打印层数的选项.(默认为8)
- * 
- * @author calvin
  */
 public class ThreadDumpper {
 

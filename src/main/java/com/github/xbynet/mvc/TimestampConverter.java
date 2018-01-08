@@ -1,11 +1,11 @@
 package com.github.xbynet.mvc;
 
-import java.sql.Timestamp;
-
+import com.github.xbynet.util.StringUtil;
 import org.springframework.core.convert.converter.Converter;
 
-import com.github.xbynet.util.StringUtil;
+import java.sql.Timestamp;
 
+//@Component
 public class TimestampConverter implements Converter<String, Timestamp>{
 
 	@Override

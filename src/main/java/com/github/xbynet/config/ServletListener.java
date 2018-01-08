@@ -1,11 +1,9 @@
 package com.github.xbynet.config;
 
-import java.io.File;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-
-import org.springframework.stereotype.Component;
+import javax.servlet.annotation.WebListener;
+import java.io.File;
 
 
 
@@ -14,7 +12,7 @@ import org.springframework.stereotype.Component;
 /**
  *启动监听器,依赖于sevlet容器
  */
-@Component
+@WebListener
 public class ServletListener implements ServletContextListener{
 
 	public void contextDestroyed(ServletContextEvent cd) {
@@ -24,6 +22,7 @@ public class ServletListener implements ServletContextListener{
 	public void contextInitialized(ServletContextEvent sce) {
 
 		String rootPath = new File(sce.getServletContext().getRealPath("/")).getParent();
+		System.out.println(rootPath);
 		GlobalContext.setRootPath(rootPath);
 	}
 }

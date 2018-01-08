@@ -1,12 +1,12 @@
 package com.github.xbynet.util.http;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.apache.commons.httpclient.HttpHost;
+import org.apache.http.HttpHost;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpCoreContext;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UrlUtil {
 	public static String getUrlDomain(String url){
