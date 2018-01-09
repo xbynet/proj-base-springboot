@@ -1,4 +1,4 @@
-package com.github.xbynet.session;
+package com.github.xbynet.util.session;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;

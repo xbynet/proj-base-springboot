@@ -1,4 +1,4 @@
-package com.github.xbynet.session;
+package com.github.xbynet.util.session;
 
 /**
  * Created by taojw .

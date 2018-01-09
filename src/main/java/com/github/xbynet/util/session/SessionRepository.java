@@ -1,4 +1,4 @@
-package com.github.xbynet.session;
+package com.github.xbynet.util.session;
 
 /**
  * Session仓库,用户创建、获取、删除session等

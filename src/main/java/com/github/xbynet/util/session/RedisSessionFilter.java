@@ -1,4 +1,4 @@
-package com.github.xbynet.session;
+package com.github.xbynet.util.session;
 
 import java.io.IOException;
 
