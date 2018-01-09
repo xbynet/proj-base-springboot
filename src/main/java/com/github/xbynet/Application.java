@@ -6,16 +6,19 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
-//@EnableAspectJAutoProxy(proxyTargetClass=true)
+@EnableAspectJAutoProxy(proxyTargetClass=true)
 @ServletComponentScan(basePackages = {"com.github.xbynet.config"})
 @EnableJpaRepositories(basePackages={"com.github.xbynet.**.dao"})
 @ComponentScan(basePackages = { "com.github.xbynet.**.controller","com.github.xbynet.**.mvc","com.github.xbynet.**.service","com.github.xbynet.**.dao","com.github.xbynet.**.config"})
 @EntityScan(basePackages={"com.github.xbynet.**.entity"})
+@EnableCaching(proxyTargetClass = true) //If you are using the cache infrastructure with beans that are not interface-based, make sure to enable the proxyTargetClass attribute of @EnableCaching.
 public class Application extends SpringBootServletInitializer {
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

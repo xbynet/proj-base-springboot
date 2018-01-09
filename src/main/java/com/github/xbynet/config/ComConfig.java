@@ -3,12 +3,10 @@ package com.github.xbynet.config;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.support.OpenSessionInViewFilter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -33,6 +31,8 @@ public class ComConfig {
 		return new HibernateTransactionManager(sessionFactory);
 	}
 	//https://stackoverflow.com/questions/36979281/using-spring-boot-and-data-jpa-getting-lazyinitializationexception-despite-the
+/*
+Spring Boot will by default register OpenEntityManagerInViewInterceptor to apply the "Open EntityManager in View" pattern
 	@Bean
 	public FilterRegistrationBean registerOpenSessionInViewFilterBean() {
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
@@ -40,5 +40,5 @@ public class ComConfig {
 		registrationBean.setFilter(filter);
 		registrationBean.setOrder(10);
 		return registrationBean;
-	}
+	}*/
 }

@@ -32,7 +32,7 @@ import java.util.Map;
 public class DruidDBConfig {
 
 	@Bean
-//	@ConfigurationProperties("spring.datasource.*")
+//	@ConfigurationProperties("spring.datasource")
 	public DruidDataSource dataSource(DataSourceProperties properties) {
 		DruidDataSource dataSource = new DruidDataSource();
 		dataSource.setDriverClassName(properties.determineDriverClassName());
