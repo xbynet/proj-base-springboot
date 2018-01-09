@@ -21,7 +21,7 @@ public class IndexController {
 	@GetMapping("")
 	@ResponseBody
 	public String hello(){
-		return "ok"+ GlobalContext.getRootPath();
+		return "okqqq2221"+ GlobalContext.getRootPath();
 	}
 	@GetMapping("test")
 	@ResponseBody
