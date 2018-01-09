@@ -1,4 +1,4 @@
-package com.github.xbynet.redis;
+package com.github.xbynet.util.redis;
 
 import java.io.IOException;
 import java.util.List;

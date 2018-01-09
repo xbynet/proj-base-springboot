@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 
 import redis.clients.jedis.Jedis;
 
-import com.github.xbynet.redis.JedisAction;
-import com.github.xbynet.redis.JedisSerializerUtil;
-import com.github.xbynet.redis.JedisTemplate;
+import com.github.xbynet.util.redis.JedisAction;
+import com.github.xbynet.util.redis.JedisSerializerUtil;
+import com.github.xbynet.util.redis.JedisTemplate;
 
 /**
  * Created by taojw

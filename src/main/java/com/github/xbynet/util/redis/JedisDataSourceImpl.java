@@ -1,4 +1,4 @@
-package com.github.xbynet.redis;
+package com.github.xbynet.util.redis;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

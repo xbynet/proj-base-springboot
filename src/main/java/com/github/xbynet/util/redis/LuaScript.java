@@ -1,4 +1,4 @@
-package com.github.xbynet.redis;
+package com.github.xbynet.util.redis;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;

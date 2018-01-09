@@ -1,4 +1,4 @@
-package com.github.xbynet.redis;
+package com.github.xbynet.util.redis;
 
 /**
  * 标记接口
