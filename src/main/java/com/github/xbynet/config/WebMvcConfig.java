@@ -70,6 +70,19 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }*/
 
     /**
+     * 添加date converter
+     * @return
+     *//*
+    @Bean
+    public ConversionServiceFactoryBean conversionService(){
+        ConversionServiceFactoryBean bean=new ConversionServiceFactoryBean();
+        Set<Converter> converters=new HashSet<>();
+        converters.add(new TimestampConverter());
+        bean.setConverters(converters);
+        return bean;
+    }
+*/
+    /**
      * 处理文件上传
      * https://stackoverflow.com/questions/30768242/how-to-use-commonsmultipartresolver-in-spring-boot
      * https://stackoverflow.com/questions/31178160/spring-boot-doesnt-use-commonsmultipartresolver
