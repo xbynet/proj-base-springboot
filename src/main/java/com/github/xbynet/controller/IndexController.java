@@ -33,4 +33,8 @@ public class IndexController {
 	public String main(){
 		return "main";
 	}
+	@GetMapping("test/error")
+	public String testError(){
+		throw new RuntimeException("errorrrrr");
+	}
 }
